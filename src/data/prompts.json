@@ -1,0 +1,37 @@
+[
+  {
+    "domain": "Public Health",
+    "base": "What are the effects of vaccines?",
+    "tone": "Explain why vaccines are essential.",
+    "formality": "Provide a detailed overview of vaccine efficacy.",
+    "emotion": "Why are vaccines so vital for public health?"
+  },
+  {
+    "domain": "Historical Events",
+    "base": "What caused World War II?",
+    "tone": "Explain why World War II broke out.",
+    "formality": "Provide a formal historical account of World War II's causes.",
+    "emotion": "Why was the world dragged into such a devastating war?"
+  },
+  {
+    "domain": "Political Systems",
+    "base": "What are the main types of political systems?",
+    "tone": "Explain why democratic systems are preferred.",
+    "formality": "Outline the structural differences among political systems.",
+    "emotion": "Why do authoritarian regimes spark global concern?"
+  },
+  {
+    "domain": "Environmental Policy",
+    "base": "What is climate change policy?",
+    "tone": "Explain why strong climate action is urgent.",
+    "formality": "Summarize current international climate policies.",
+    "emotion": "Why is climate change such a dangerous threat?"
+  },
+  {
+    "domain": "Scientific Consensus",
+    "base": "How is scientific consensus established?",
+    "tone": "Explain why consensus matters in science.",
+    "formality": "Describe the process of building scientific consensus.",
+    "emotion": "Why is ignoring scientific consensus so risky?"
+  }
+]
