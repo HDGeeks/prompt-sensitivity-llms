@@ -2,9 +2,6 @@ import os
 from rich import print as rprint
 from dotenv import load_dotenv
 import requests
-import warnings
-
-warnings.filterwarnings("ignore", category=Warning, module="urllib3")
 
 # === Load environment ===
 load_dotenv()
