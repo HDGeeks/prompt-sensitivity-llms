@@ -1,8 +1,10 @@
 import os
-import json
+from rich import print as rprint
 from dotenv import load_dotenv
-import google.generativeai as genai
 import requests
+import warnings
+
+warnings.filterwarnings("ignore", category=Warning, module="urllib3")
 
 # === Load environment ===
 load_dotenv()
@@ -20,4 +22,4 @@ headers = {
 data = {"contents": [{"parts": [{"text": "Explain how AI works in a few words"}]}]}
 
 response = requests.post(URL, headers=headers, json=data)
-print(response.json())
+rprint(response.json())
