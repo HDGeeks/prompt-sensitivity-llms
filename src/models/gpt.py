@@ -3,43 +3,28 @@ from openai import OpenAI
 from dotenv import load_dotenv
 from rich import print as rprint
 
-# === Load environment ===
+# Load environment
 load_dotenv()
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-
-OPENAI_MODEL = "gpt-4o"
-MAX_TOKENS = 150
-TEMPERATURE = 0.7
-TOP_P = 0.9
 
 client = OpenAI(api_key=OPENAI_KEY)
 
 
-def get_openai_response(prompt: str) -> dict:
+def ping_openai() -> dict:
     try:
         response = client.chat.completions.create(
-            model=OPENAI_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=MAX_TOKENS,
-            temperature=TEMPERATURE,
-            top_p=TOP_P,
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": "Ping"}],
+            max_tokens=10,
         )
-        # Format response to match Gemini's JSON structure for consistency
-        result = {
+        return {
+            "status": "success",
             "response": response.choices[0].message.content.strip(),
-            "model": OPENAI_MODEL,
-            "usage": {
-                "prompt_tokens": response.usage.prompt_tokens,
-                "completion_tokens": response.usage.completion_tokens,
-                "total_tokens": response.usage.total_tokens,
-            },
         }
-        return result
     except Exception as e:
-        return {"error": f"[OpenAI Error] {e}"}
+        return {"status": "error", "message": str(e)}
 
 
 if __name__ == "__main__":
-    prompt = "Explain how AI works in a few words"
-    response = get_openai_response(prompt)
-    rprint(response)
+    result = ping_openai()
+    rprint(result)
