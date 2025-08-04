@@ -14,7 +14,7 @@ client = OpenAI(
 
 response = client.responses.create(
     model="gpt-4o-mini",
-    input="write a haiku about ai",
+    input="write 5 token response  haiku about ai",
     store=True,
 )
 
