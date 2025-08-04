@@ -7,24 +7,15 @@ from rich import print as rprint
 load_dotenv()
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 
-client = OpenAI(api_key=OPENAI_KEY)
 
+client = OpenAI(
+    api_key=OPENAI_KEY,
+)
 
-def ping_openai() -> dict:
-    try:
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": "Ping"}],
-            max_tokens=10,
-        )
-        return {
-            "status": "success",
-            "response": response.choices[0].message.content.strip(),
-        }
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
+response = client.responses.create(
+    model="gpt-4o-mini",
+    input="write a haiku about ai",
+    store=True,
+)
 
-
-if __name__ == "__main__":
-    result = ping_openai()
-    rprint(result)
+rprint(response.output_text)
