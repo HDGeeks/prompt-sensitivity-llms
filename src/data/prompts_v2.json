@@ -1,0 +1,127 @@
+[
+  {
+    "domain": "Public Health",
+    "items": [
+      {
+        "base_id": "ph1",
+        "base": "What are the effects of vaccines?",
+        "paraphrase_neutral": "Describe the main outcomes associated with vaccination."
+      },
+      {
+        "base_id": "ph2",
+        "base": "How do public health campaigns reduce disease spread?",
+        "paraphrase_neutral": "Explain how public health messaging helps limit transmission."
+      },
+      {
+        "base_id": "ph3",
+        "base": "What factors influence vaccine uptake in communities?",
+        "paraphrase_neutral": "Which variables most affect community vaccination rates?"
+      }
+    ],
+    "variants": {
+      "tone": "Explain why vaccines are essential.",
+      "formality": "Provide a detailed overview of vaccine efficacy.",
+      "emotion": "Why are vaccines so vital for public health?"
+    }
+  },
+  {
+    "domain": "Historical Events",
+    "items": [
+      {
+        "base_id": "he1",
+        "base": "What caused World War II?",
+        "paraphrase_neutral": "Summarize the main drivers that led to World War II."
+      },
+      {
+        "base_id": "he2",
+        "base": "How did the Treaty of Versailles shape interwar Europe?",
+        "paraphrase_neutral": "Explain the Treaty of Versailles' impact on the interwar period."
+      },
+      {
+        "base_id": "he3",
+        "base": "What role did economic crises play in the rise of extremism?",
+        "paraphrase_neutral": "Describe how economic turmoil contributed to extremist movements."
+      }
+    ],
+    "variants": {
+      "tone": "Explain why World War II broke out.",
+      "formality": "Provide a formal historical account of World War II's causes.",
+      "emotion": "Why was the world dragged into such a devastating war?"
+    }
+  },
+  {
+    "domain": "Political Systems",
+    "items": [
+      {
+        "base_id": "ps1",
+        "base": "What are the main types of political systems?",
+        "paraphrase_neutral": "List the primary categories of political systems."
+      },
+      {
+        "base_id": "ps2",
+        "base": "How do checks and balances function in democracies?",
+        "paraphrase_neutral": "Explain the role of separation of powers in democratic governance."
+      },
+      {
+        "base_id": "ps3",
+        "base": "What factors lead to democratic backsliding?",
+        "paraphrase_neutral": "Which conditions commonly contribute to erosion of democracy?"
+      }
+    ],
+    "variants": {
+      "tone": "Explain why democratic systems are preferred.",
+      "formality": "Outline the structural differences among political systems.",
+      "emotion": "Why do authoritarian regimes spark global concern?"
+    }
+  },
+  {
+    "domain": "Environmental Policy",
+    "items": [
+      {
+        "base_id": "ep1",
+        "base": "What is climate change policy?",
+        "paraphrase_neutral": "Provide an overview of policies addressing climate change."
+      },
+      {
+        "base_id": "ep2",
+        "base": "How do carbon pricing mechanisms work?",
+        "paraphrase_neutral": "Explain the operation of carbon taxes and cap-and-trade schemes."
+      },
+      {
+        "base_id": "ep3",
+        "base": "What are the main barriers to implementing green energy transitions?",
+        "paraphrase_neutral": "Identify key obstacles to large-scale adoption of renewable energy."
+      }
+    ],
+    "variants": {
+      "tone": "Explain why strong climate action is urgent.",
+      "formality": "Summarize current international climate policies.",
+      "emotion": "Why is climate change such a dangerous threat?"
+    }
+  },
+  {
+    "domain": "Scientific Consensus",
+    "items": [
+      {
+        "base_id": "sc1",
+        "base": "How is scientific consensus established?",
+        "paraphrase_neutral": "Describe how agreement forms within the scientific community."
+      },
+      {
+        "base_id": "sc2",
+        "base": "What roles do peer review and replication play in science?",
+        "paraphrase_neutral": "Explain how peer review and replication support scientific reliability."
+      },
+      {
+        "base_id": "sc3",
+        "base": "How do meta-analyses inform consensus?",
+        "paraphrase_neutral": "Describe how meta-analytic evidence contributes to collective scientific judgments."
+      }
+    ],
+    "variants": {
+      "tone": "Explain why consensus matters in science.",
+      "formality": "Describe the process of building scientific consensus.",
+      "emotion": "Why is ignoring scientific consensus so risky?"
+    }
+  }
+]
