@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 GEMINI_KEY = os.getenv("GEMINI_API_KEY")
+
+
 URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 HEADERS = {"Content-Type": "application/json", "X-goog-api-key": GEMINI_KEY}
 
