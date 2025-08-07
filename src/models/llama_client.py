@@ -15,15 +15,15 @@ client = InferenceClient(api_key=HF_TOKEN)
 def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
     t0 = time.time()
     try:
-        messages = [{"role": "user", "content": prompt}]
-        text = client.chat_completion(
-            messages,
+        result = client.chat_completion(
+            messages=[{"role": "user", "content": prompt}],
             model=HF_MODEL_INSTRUCT,
-            max_new_tokens=max_tokens,
             temperature=temperature,
             top_p=top_p,
+            max_tokens=max_tokens,
             stream=False,
-        ).strip()
+        )
+        text = result.choices[0].message.content.strip()  # ✅ this fixes the error
         err = ""
     except Exception as e:
         text, err = "", f"{e}"
