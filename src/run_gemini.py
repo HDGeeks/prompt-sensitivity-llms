@@ -5,7 +5,8 @@ from models.gemini_client import query_gemini  # 👈 IMPORTANT
 
 # === CONFIG ===
 MODEL_NAME = "gemini"
-MODEL_VERSION = "Gemini-2.0-Flash"
+# MODEL_VERSION = "Gemini-2.0-Flash"
+MODEL_VERSION = "Gemini-1.5-Pro"
 N_RUNS = 5
 CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
 MAX_TOKENS = 130

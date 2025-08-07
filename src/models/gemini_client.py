@@ -5,7 +5,8 @@ load_dotenv()
 GEMINI_KEY = os.getenv("GEMINI_API_KEY")
 
 
-URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+# URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro-latest:generateContent"
 HEADERS = {"Content-Type": "application/json", "X-goog-api-key": GEMINI_KEY}
 
 
