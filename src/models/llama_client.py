@@ -7,8 +7,9 @@ HF_TOKEN = os.getenv("HUGGINGFACE_API_KEY")
 if not HF_TOKEN:
     raise ValueError("HUGGINGFACE_API_KEY not set in .env")
 
-HF_MODEL = "meta-llama/Llama-3.1-8B"
-HF_MODEL_INSTRUCT = "meta-llama/Llama-3.1-8B-Instruct"  # or your preferred LLaMA 3.x
+# HF_MODEL = "meta-llama/Llama-3.1-8B"
+# HF_MODEL_INSTRUCT = "meta-llama/Llama-3.1-8B-Instruct"  # or your preferred LLaMA 3.x
+HF_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
 client = InferenceClient(api_key=HF_TOKEN)
 
 
@@ -17,7 +18,7 @@ def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
     try:
         result = client.chat_completion(
             messages=[{"role": "user", "content": prompt}],
-            model=HF_MODEL_INSTRUCT,
+            model=HF_MODEL,
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,

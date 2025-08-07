@@ -7,7 +7,8 @@ OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_KEY)
 
 # MODEL_ID = "gpt-4o-mini"  # change if needed
-MODEL_VERSION = "gpt-3.5-turbo"
+# MODEL_VERSION = "gpt-3.5-turbo"
+MODEL_VERSION = "gpt-4o"
 
 
 def query_openai(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):

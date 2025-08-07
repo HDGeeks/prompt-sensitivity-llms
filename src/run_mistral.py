@@ -1,17 +1,15 @@
 import csv, json, random, time
 from datetime import datetime
 from pathlib import Path
-from models.openai_client import query_openai  # 👈 IMPORTANT
+from models.llama_client import query_llama
 
 # === CONFIG ===
-MODEL_NAME = "openai"
-# MODEL_VERSION = "gpt-3.5-turbo"
-MODEL_VERSION = "gpt-4o"
-# MODEL_VERSION = "gpt-4o-mini"
+MODEL_NAME = "mistralai"
+MODEL_VERSION = "Mistral-7B-Instruct-v0.3"
 N_RUNS = 5
 CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
-MAX_TOKENS = 130
-TEMPERATURE = 0.5
+MAX_TOKENS = 130  # Tighter for 100 words
+TEMPERATURE = 0.5  # Lower = more factual and stable
 TOP_P = 0.9
 OUTDIR = Path("src/outputs")
 OUTDIR.mkdir(parents=True, exist_ok=True)
@@ -52,7 +50,7 @@ def word_count(text):
 
 
 def estimate_tokens(text):
-    return int(len(text) / 4)  # rough approximation
+    return int(len(text) / 4)  # rough approx.
 
 
 # === RUN ===
@@ -94,7 +92,7 @@ def main():
                 base_rows, start=1
             ):
                 full_prompt = f"{raw_prompt}{CONTROL_SUFFIX}"
-                text, err, latency_ms = query_openai(
+                text, err, latency_ms = query_llama(
                     full_prompt, MAX_TOKENS, TEMPERATURE, TOP_P
                 )
 
