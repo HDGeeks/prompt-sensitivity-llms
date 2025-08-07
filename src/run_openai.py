@@ -5,7 +5,9 @@ from models.openai_client import query_openai  # 👈 IMPORTANT
 
 # === CONFIG ===
 MODEL_NAME = "openai"
-MODEL_VERSION = "gpt-4o-mini"
+MODEL_VERSION = "gpt-3.5-turbo"
+# MODEL_VERSION = "gpt-4o"
+# MODEL_VERSION = "gpt-4o-mini"
 N_RUNS = 5
 CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
 MAX_TOKENS = 130
