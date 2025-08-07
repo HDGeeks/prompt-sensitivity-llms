@@ -6,7 +6,7 @@ from models.llama_client import query_llama
 # === CONFIG ===
 MODEL_NAME = "llama"
 MODEL_VERSION = "LLaMA-3.1-8B-Instruct"
-N_RUNS = 1
+N_RUNS = 5
 CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
 MAX_TOKENS = 130  # Tighter for 100 words
 TEMPERATURE = 0.5  # Lower = more factual and stable
