@@ -7,9 +7,9 @@ from models.llama_client import query_llama
 MODEL_NAME = "llama"
 MODEL_VERSION = "LLaMA-3.1-8B-Instruct"
 N_RUNS = 5
-CONTROL_SUFFIX = " Respond clearly and concisely in ~80–120 words."
-MAX_TOKENS = 150
-TEMPERATURE = 0.7
+CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
+MAX_TOKENS = 130  # Tighter for 100 words
+TEMPERATURE = 0.5  # Lower = more factual and stable
 TOP_P = 0.9
 OUTDIR = Path("src/outputs")
 OUTDIR.mkdir(parents=True, exist_ok=True)
