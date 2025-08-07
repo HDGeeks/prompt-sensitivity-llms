@@ -15,8 +15,9 @@ client = InferenceClient(api_key=HF_TOKEN)
 def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
     t0 = time.time()
     try:
-        text = client.text_generation(
-            prompt,
+        messages = [{"role": "user", "content": prompt}]
+        text = client.chat_completion(
+            messages,
             model=HF_MODEL_INSTRUCT,
             max_new_tokens=max_tokens,
             temperature=temperature,
@@ -28,3 +29,21 @@ def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
         text, err = "", f"{e}"
     latency_ms = int((time.time() - t0) * 1000)
     return text, err, latency_ms
+
+
+# def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
+#     t0 = time.time()
+#     try:
+#         text = client.text_generation(  # we use chat_completion for LLaMA 3.x but text_generation worked for smaller models
+#             prompt,
+#             model=HF_MODEL_INSTRUCT,
+#             max_new_tokens=max_tokens,
+#             temperature=temperature,
+#             top_p=top_p,
+#             stream=False,
+#         ).strip()
+#         err = ""
+#     except Exception as e:
+#         text, err = "", f"{e}"
+#     latency_ms = int((time.time() - t0) * 1000)
+#     return text, err, latency_ms
