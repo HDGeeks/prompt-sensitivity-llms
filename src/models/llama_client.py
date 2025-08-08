@@ -9,16 +9,17 @@ if not HF_TOKEN:
 
 # HF_MODEL = "meta-llama/Llama-3.1-8B"
 # HF_MODEL_INSTRUCT = "meta-llama/Llama-3.1-8B-Instruct"  # or your preferred LLaMA 3.x
-HF_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
+# HF_MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
+
 client = InferenceClient(api_key=HF_TOKEN)
 
 
-def query_llama(prompt: str, max_tokens=150, temperature=0.7, top_p=0.9):
+def query_llama(prompt: str, max_tokens, temperature, top_p, model):
     t0 = time.time()
     try:
         result = client.chat_completion(
             messages=[{"role": "user", "content": prompt}],
-            model=HF_MODEL,
+            model=model,
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens,

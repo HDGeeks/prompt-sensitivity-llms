@@ -4,6 +4,7 @@ from pathlib import Path
 from models.llama_client import query_llama
 
 # === CONFIG ===
+MODEL = "meta-llama/Llama-3.1-8B-Instruct"
 MODEL_NAME = "llama"
 MODEL_VERSION = "LLaMA-3.1-8B-Instruct"
 N_RUNS = 5
@@ -93,7 +94,7 @@ def main():
             ):
                 full_prompt = f"{raw_prompt}{CONTROL_SUFFIX}"
                 text, err, latency_ms = query_llama(
-                    full_prompt, MAX_TOKENS, TEMPERATURE, TOP_P
+                    full_prompt, MAX_TOKENS, TEMPERATURE, TOP_P, MODEL
                 )
 
                 row = [

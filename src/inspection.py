@@ -10,6 +10,8 @@ OUTPUT_REPORT = True  # print details
 
 def inspect_csv(path):
     df = pd.read_csv(path)
+    # print path
+    print(f"Inspecting CSV: {Path(path).name}")
     # Shape of the DataFrame
     print(df.shape)
     # Columns in the DataFrame
