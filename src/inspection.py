@@ -3,7 +3,7 @@ import numpy as np
 from pathlib import Path
 
 # === CONFIG ===
-CSV_PATH = "/Users/hd/Desktop/prompt-sensitivity-llms/src/outputs/responses_gemini_Gemini-1.5-Pro_5_20250807_1439.csv"
+CSV_PATH = "/Users/hd/Desktop/prompt-sensitivity-llms/src/outputs/responses_llama_LLaMA-3.1-8B-Instruct_5_20250807_1336.csv"
 ERROR_THRESHOLD = 0  # allowed % error rate (0 means perfect)
 OUTPUT_REPORT = True  # print details
 
