@@ -8,12 +8,16 @@ import logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 
 # === CONFIG ===
+# === CONFIG ===
 CSV_PATH = Path(
     "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_gemini_Gemini-2.0-Flash_5_20250808_1114.csv"
 ).expanduser()
+
 MODEL_LABEL = "Gemini-2.0-Flash"
-OUTPUT_DIR = Path("~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/results/")
-OUTPUT_DIR.mkdir(exist_ok=True)
+
+OUTPUT_DIR = Path("src/results/")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # === LOAD CSV ===
 cols_needed = [

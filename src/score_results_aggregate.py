@@ -3,14 +3,19 @@ import pandas as pd
 from pathlib import Path
 from textblob import TextBlob
 from bert_score import score
+import logging
 
+logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 # === CONFIG ===
 CSV_PATH = Path(
     "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_gemini_Gemini-2.0-Flash_5_20250808_1114.csv"
 ).expanduser()
+
 MODEL_LABEL = "Gemini-2.0-Flash"
-OUTPUT_DIR = Path("~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/results/")
+
+OUTPUT_DIR = Path("src/results/")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # === LOAD CSV ===
 cols_needed = [
