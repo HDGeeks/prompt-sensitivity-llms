@@ -8,10 +8,10 @@ import logging
 logging.getLogger("transformers.modeling_utils").setLevel(logging.ERROR)
 # === CONFIG ===
 CSV_PATH = Path(
-    "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_openai_gpt-4o_5_20250807_1620.csv"
+    "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_openai_gpt-4o-mini_5_20250807_1418.csv"
 ).expanduser()
 
-MODEL_LABEL = "OpenAI GPT-4o"
+MODEL_LABEL = "OpenAI GPT-4o Mini"
 
 OUTPUT_DIR = Path("src/results/")
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
