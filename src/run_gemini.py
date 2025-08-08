@@ -57,7 +57,7 @@ def estimate_tokens(text):
 # === RUN ===
 def main():
     stamp = datetime.now().strftime("%Y%m%d_%H%M")
-    out_csv = OUTDIR / f"responses_{MODEL_NAME}/{MODEL_VERSION}_{N_RUNS}_{stamp}.csv"
+    out_csv = OUTDIR / f"responses_{MODEL_NAME}_{MODEL_VERSION}_{N_RUNS}_{stamp}.csv"
     promptset = load_promptset()
     base_rows = all_items(promptset)
 
