@@ -10,7 +10,11 @@ OUTPUT_REPORT = True  # print details
 
 def inspect_csv(path):
     df = pd.read_csv(path)
+    # Shape of the DataFrame
     print(df.shape)
+    # Columns in the DataFrame
+    print(df.columns.tolist())
+
     # --- Normalize empty strings to NaN in err & response ---
     df["err"] = df["err"].apply(
         lambda x: np.nan if isinstance(x, str) and x.strip() == "" else x
