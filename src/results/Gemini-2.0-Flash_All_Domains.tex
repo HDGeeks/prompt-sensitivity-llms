@@ -1,0 +1,130 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{Gemini-2.0-Flash – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Environmental Policy – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.852 & 0.06 & 88.6  \\
+tone & 0.795 & 0.07 & 87.2  \\
+formality & 0.786 & 0.03 & 91.2  \\
+emotion & 0.798 & -0.09 & 86.8  \\
+base & 0.871 & 0.07 & 90.4  \\
+tone & 0.790 & 0.07 & 86.6  \\
+formality & 0.796 & 0.07 & 91.4  \\
+emotion & 0.790 & -0.08 & 83.8  \\
+base & 0.859 & -0.02 & 90.6  \\
+tone & 0.804 & 0.10 & 90.0  \\
+formality & 0.809 & 0.04 & 91.0  \\
+emotion & 0.803 & -0.09 & 84.0  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Scientific Consensus – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.866 & 0.15 & 95.4  \\
+tone & 0.819 & 0.10 & 89.6  \\
+formality & 0.807 & 0.12 & 86.4  \\
+emotion & 0.801 & -0.02 & 83.6  \\
+base & 0.870 & 0.15 & 90.8  \\
+tone & 0.812 & 0.06 & 88.0  \\
+formality & 0.811 & 0.07 & 87.0  \\
+emotion & 0.798 & -0.08 & 80.4  \\
+base & 0.862 & 0.16 & 88.0  \\
+tone & 0.820 & 0.13 & 87.4  \\
+formality & 0.864 & 0.10 & 85.8  \\
+emotion & 0.803 & -0.04 & 82.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Political Systems – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.846 & -0.01 & 87.8  \\
+tone & 0.808 & 0.22 & 81.6  \\
+formality & 0.788 & 0.02 & 84.6  \\
+emotion & 0.821 & 0.06 & 90.0  \\
+base & 0.879 & -0.00 & 80.2  \\
+tone & 0.794 & 0.19 & 81.4  \\
+formality & 0.806 & 0.04 & 87.6  \\
+emotion & 0.786 & 0.03 & 87.4  \\
+base & 0.843 & 0.11 & 86.8  \\
+tone & 0.805 & 0.19 & 86.4  \\
+formality & 0.788 & 0.02 & 82.0  \\
+emotion & 0.791 & 0.05 & 85.2  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Historical Events – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.875 & 0.04 & 81.2  \\
+tone & 0.807 & -0.06 & 88.0  \\
+formality & 0.808 & 0.07 & 90.4  \\
+emotion & 0.812 & -0.04 & 92.4  \\
+base & 0.868 & -0.01 & 92.6  \\
+tone & 0.836 & -0.04 & 92.2  \\
+formality & 0.837 & 0.06 & 89.4  \\
+emotion & 0.830 & -0.00 & 86.2  \\
+base & 0.881 & -0.03 & 91.0  \\
+tone & 0.867 & -0.05 & 92.2  \\
+formality & 0.877 & 0.07 & 89.0  \\
+emotion & 0.867 & -0.10 & 87.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Public Health – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.849 & -0.02 & 94.8  \\
+tone & 0.844 & -0.06 & 93.0  \\
+formality & 0.814 & 0.07 & 84.2  \\
+emotion & 0.860 & -0.02 & 91.8  \\
+base & 0.863 & 0.05 & 81.2  \\
+tone & 0.802 & -0.04 & 89.6  \\
+formality & 0.801 & 0.13 & 84.0  \\
+emotion & 0.805 & -0.03 & 88.6  \\
+base & 0.862 & 0.16 & 84.6  \\
+tone & 0.812 & -0.08 & 90.2  \\
+formality & 0.792 & 0.22 & 86.0  \\
+emotion & 0.824 & -0.04 & 88.6  \\
+\hline
+\end{tabular}
+\end{table}
+\end{document}
