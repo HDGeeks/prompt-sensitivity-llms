@@ -3,7 +3,7 @@ import numpy as np
 from pathlib import Path
 
 # === CONFIG ===
-CSV_PATH = "/Users/hd/Desktop/prompt-sensitivity-llms/src/outputs/responses_openai_gpt-4o-mini_5_20250807_1418.csv"
+CSV_PATH = "/Users/hd/Desktop/prompt-sensitivity-llms/src/outputs/responses_openai_gpt-3.5-turbo_5_20250807_1459.csv"
 ERROR_THRESHOLD = 0  # allowed % error rate (0 means perfect)
 OUTPUT_REPORT = True  # print details
 
