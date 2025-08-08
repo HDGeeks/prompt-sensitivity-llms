@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{OpenAI GPT-4o – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Environmental Policy – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.07 & 99.0  \\
+tone & 0.811 & 0.03 & 97.7  \\
+formality & 0.819 & 0.01 & 95.7  \\
+emotion & 0.806 & 0.04 & 100.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Scientific Consensus – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.870 & 0.05 & 96.9  \\
+tone & 0.832 & 0.11 & 96.1  \\
+formality & 0.831 & 0.08 & 97.4  \\
+emotion & 0.810 & 0.03 & 96.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Political Systems – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.07 & 94.9  \\
+tone & 0.818 & 0.20 & 97.6  \\
+formality & 0.825 & 0.04 & 98.4  \\
+emotion & 0.813 & 0.03 & 98.3  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Historical Events – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.880 & 0.09 & 98.3  \\
+tone & 0.841 & 0.06 & 100.1  \\
+formality & 0.838 & 0.05 & 93.4  \\
+emotion & 0.825 & -0.10 & 98.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Public Health – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.864 & 0.07 & 98.7  \\
+tone & 0.835 & 0.02 & 98.6  \\
+formality & 0.808 & 0.14 & 94.7  \\
+emotion & 0.837 & 0.04 & 98.5  \\
+\hline
+\end{tabular}
+\end{table}
+\end{document}

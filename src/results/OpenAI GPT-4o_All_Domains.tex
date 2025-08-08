@@ -1,0 +1,130 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{OpenAI GPT-4o – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Environmental Policy – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.870 & -0.00 & 98.6  \\
+tone & 0.805 & 0.01 & 97.2  \\
+formality & 0.795 & -0.00 & 94.8  \\
+emotion & 0.810 & 0.04 & 100.0  \\
+base & 0.873 & 0.14 & 98.8  \\
+tone & 0.793 & 0.04 & 97.6  \\
+formality & 0.800 & 0.02 & 97.0  \\
+emotion & 0.791 & 0.06 & 100.0  \\
+base & 0.863 & 0.09 & 99.6  \\
+tone & 0.835 & 0.04 & 98.4  \\
+formality & 0.862 & 0.01 & 95.4  \\
+emotion & 0.817 & 0.02 & 100.2  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Scientific Consensus – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.872 & 0.03 & 95.4  \\
+tone & 0.828 & 0.16 & 98.4  \\
+formality & 0.816 & 0.10 & 98.4  \\
+emotion & 0.810 & 0.05 & 95.8  \\
+base & 0.873 & 0.00 & 97.6  \\
+tone & 0.832 & 0.05 & 95.4  \\
+formality & 0.825 & 0.08 & 95.8  \\
+emotion & 0.810 & 0.03 & 97.0  \\
+base & 0.866 & 0.11 & 97.6  \\
+tone & 0.835 & 0.11 & 94.6  \\
+formality & 0.852 & 0.06 & 98.0  \\
+emotion & 0.810 & -0.00 & 95.6  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Political Systems – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.856 & -0.01 & 97.6  \\
+tone & 0.814 & 0.21 & 95.6  \\
+formality & 0.800 & 0.07 & 99.6  \\
+emotion & 0.821 & 0.02 & 98.6  \\
+base & 0.882 & 0.06 & 90.6  \\
+tone & 0.816 & 0.22 & 99.6  \\
+formality & 0.861 & 0.07 & 97.0  \\
+emotion & 0.808 & 0.03 & 97.4  \\
+base & 0.869 & 0.16 & 96.6  \\
+tone & 0.825 & 0.17 & 97.6  \\
+formality & 0.815 & -0.01 & 98.6  \\
+emotion & 0.809 & 0.04 & 98.8  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Historical Events – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.881 & 0.15 & 97.6  \\
+tone & 0.810 & 0.06 & 99.4  \\
+formality & 0.805 & 0.07 & 93.0  \\
+emotion & 0.813 & -0.07 & 99.2  \\
+base & 0.881 & 0.06 & 98.2  \\
+tone & 0.840 & 0.05 & 101.0  \\
+formality & 0.838 & 0.01 & 93.2  \\
+emotion & 0.822 & -0.12 & 98.0  \\
+base & 0.879 & 0.07 & 99.0  \\
+tone & 0.874 & 0.06 & 100.0  \\
+formality & 0.871 & 0.07 & 94.0  \\
+emotion & 0.840 & -0.11 & 98.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Public Health – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.864 & 0.10 & 99.0  \\
+tone & 0.873 & 0.04 & 98.6  \\
+formality & 0.816 & 0.11 & 94.0  \\
+emotion & 0.874 & 0.02 & 98.4  \\
+base & 0.863 & 0.07 & 98.6  \\
+tone & 0.805 & -0.00 & 99.2  \\
+formality & 0.805 & 0.18 & 94.0  \\
+emotion & 0.809 & 0.07 & 98.2  \\
+base & 0.865 & 0.04 & 98.6  \\
+tone & 0.825 & 0.01 & 98.0  \\
+formality & 0.804 & 0.13 & 96.0  \\
+emotion & 0.829 & 0.04 & 99.0  \\
+\hline
+\end{tabular}
+\end{table}
+\end{document}
