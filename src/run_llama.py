@@ -4,9 +4,9 @@ from pathlib import Path
 from models.llama_client import query_llama
 
 # === CONFIG ===
-MODEL = "meta-llama/Llama-3.1-8B-Instruct"
-MODEL_NAME = "llama"
-MODEL_VERSION = "LLaMA-3.1-8B-Instruct"
+MODEL = "mistralai/Mistral-7B-Instruct-v0.3"
+MODEL_NAME = "mistralai"
+MODEL_VERSION = "Mistral-7B-Instruct-v0.3"
 N_RUNS = 5
 CONTROL_SUFFIX = " Respond in exactly 100 words. Be clear and concise."
 MAX_TOKENS = 130  # Tighter for 100 words
