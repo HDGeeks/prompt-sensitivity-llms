@@ -9,8 +9,8 @@ CSV_PATH = Path(
     "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_gemini_Gemini-2.0-Flash_5_20250808_1114.csv"
 ).expanduser()
 MODEL_LABEL = "Gemini-2.0-Flash"
-OUTPUT_DIR = Path("./tables_out")
-OUTPUT_DIR.mkdir(exist_ok=True)
+OUTPUT_DIR = Path("~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/results/")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # === LOAD CSV ===
 cols_needed = [
@@ -78,8 +78,8 @@ def make_tables(df_model, model_label):
             sent_avg = sum(v["sent"] for v in vals) / len(vals)
             wlen_avg = sum(v["wlen"] for v in vals) / len(vals)
             # pick a representative snippet
-            snippet = vals[0]["snippet"]
-            rows.append((var, bert_avg, sent_avg, wlen_avg, snippet))
+            # snippet = vals[0]["snippet"]
+            rows.append((var, bert_avg, sent_avg, wlen_avg))
 
         # build table
         t = []
@@ -89,12 +89,10 @@ def make_tables(df_model, model_label):
         t.append(f"\\label{{tab:{model_label}_{dom.replace(' ','_')}}}")
         t.append("\\begin{tabular}{lccc p{6cm}}")
         t.append("\\hline")
-        t.append(
-            "Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\\\"
-        )
+        t.append("Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\\\")
         t.append("\\hline")
-        for var, b, s, wl, snip in rows:
-            t.append(f"{var} & {b:.3f} & {s:.2f} & {wl:.1f} & {snip} \\\\")
+        for var, b, s, wl in rows:
+            t.append(f"{var} & {b:.3f} & {s:.2f} & {wl:.1f}  \\\\")
         t.append("\\hline")
         t.append("\\end{tabular}")
         t.append("\\end{table}")
