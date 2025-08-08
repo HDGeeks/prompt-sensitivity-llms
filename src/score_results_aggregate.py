@@ -105,7 +105,7 @@ def make_tables(df_model, model_label):
 
 merged = make_tables(df, MODEL_LABEL)
 
-out_path = OUTPUT_DIR / f"{MODEL_LABEL}_All_Domains.tex"
+out_path = OUTPUT_DIR / f"{MODEL_LABEL}_All_Domains_aggregated_rows.tex"
 with open(out_path, "w") as f:
     f.write("\\documentclass[12pt,a4paper]{article}\n")
     f.write("\\usepackage[margin=2.5cm]{geometry}\n")
