@@ -1,0 +1,130 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{Gemini-1.5-Pro – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Environmental Policy – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\
+\hline
+base & 0.851 & 0.01 & 88.2 & Green energy transitions face several key barriers.  High up... \\
+tone & 0.794 & 0.18 & 85.0 & Strong climate action is urgent because the window to avert ... \\
+formality & 0.792 & 0.01 & 86.8 & Current international climate policy centers around the Pari... \\
+emotion & 0.792 & 0.05 & 86.0 & Climate change poses a severe threat due to its cascading im... \\
+base & 0.864 & 0.07 & 93.8 & Carbon pricing mechanisms aim to reduce greenhouse gas emiss... \\
+tone & 0.784 & 0.19 & 84.6 & Strong climate action is urgent because escalating greenhous... \\
+formality & 0.790 & 0.02 & 88.4 & Current international climate policy centers around the Pari... \\
+emotion & 0.781 & 0.07 & 86.8 & Climate change poses a severe threat due to its cascading im... \\
+base & 0.851 & 0.06 & 86.6 & Climate change policy encompasses government actions address... \\
+tone & 0.808 & 0.21 & 82.0 & Strong climate action is urgent because escalating greenhous... \\
+formality & 0.810 & 0.03 & 86.0 & International climate policy centers around the Paris Agreem... \\
+emotion & 0.801 & 0.06 & 86.6 & Climate change poses a severe threat due to its cascading im... \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Scientific Consensus – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\
+\hline
+base & 0.862 & 0.16 & 84.4 & Meta-analyses synthesize findings from multiple studies on a... \\
+tone & 0.820 & 0.15 & 90.6 & Scientific consensus represents the collective judgment of e... \\
+formality & 0.818 & 0.05 & 81.8 & Scientific consensus emerges through iterative processes of ... \\
+emotion & 0.807 & 0.07 & 79.2 & Ignoring scientific consensus carries substantial risks. Con... \\
+base & 0.856 & 0.05 & 72.8 & Peer review and replication are cornerstones of scientific v... \\
+tone & 0.805 & 0.20 & 86.2 & Scientific consensus signifies agreement among experts withi... \\
+formality & 0.817 & 0.13 & 84.2 & Scientific consensus emerges through iterative processes of ... \\
+emotion & 0.797 & 0.10 & 83.2 & Ignoring scientific consensus carries significant risks. Con... \\
+base & 0.858 & 0.13 & 87.4 & Scientific consensus emerges from the convergence of evidenc... \\
+tone & 0.842 & 0.15 & 82.0 & Scientific consensus signifies agreement among experts withi... \\
+formality & 0.863 & 0.06 & 81.6 & Scientific consensus emerges through iterative processes of ... \\
+emotion & 0.818 & 0.06 & 80.2 & Ignoring scientific consensus carries significant risks. Con... \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Political Systems – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\
+\hline
+base & 0.848 & 0.05 & 77.0 & Democratic backsliding results from a confluence of factors.... \\
+tone & 0.808 & 0.19 & 94.0 & Democratic systems are preferred primarily because they dist... \\
+formality & 0.800 & 0.07 & 88.0 & Political systems differ structurally based on power distrib... \\
+emotion & 0.817 & 0.00 & 86.4 & Authoritarian regimes spark global concern due to their inhe... \\
+base & 0.836 & -0.02 & 87.8 & Political systems organize governance and power.  Major type... \\
+tone & 0.801 & 0.19 & 89.8 & Democratic systems, despite their imperfections, are general... \\
+formality & 0.818 & 0.11 & 82.2 & Political systems differ structurally based on power distrib... \\
+emotion & 0.791 & -0.02 & 86.0 & Authoritarian regimes spark global concern due to their inhe... \\
+base & 0.845 & 0.05 & 83.4 & Checks and balances distribute power among different branche... \\
+tone & 0.802 & 0.21 & 89.8 & Democratic systems, despite their imperfections, are general... \\
+formality & 0.804 & 0.10 & 85.0 & Political systems differ structurally based on power distrib... \\
+emotion & 0.788 & -0.01 & 89.0 & Authoritarian regimes spark global concern due to their inhe... \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Historical Events – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\
+\hline
+base & 0.857 & 0.17 & 81.4 & Economic crises create fertile ground for extremism by foste... \\
+tone & 0.807 & -0.08 & 87.4 & World War II erupted from unresolved tensions following Worl... \\
+formality & 0.805 & 0.04 & 89.2 & World War II stemmed from unresolved issues of World War I, ... \\
+emotion & 0.800 & -0.23 & 82.8 & World War I erupted from a complex interplay of factors.  Na... \\
+base & 0.870 & -0.00 & 83.4 & The Treaty of Versailles profoundly shaped interwar Europe b... \\
+tone & 0.845 & -0.07 & 91.0 & World War II erupted from unresolved tensions following Worl... \\
+formality & 0.844 & 0.07 & 88.8 & World War II stemmed from unresolved issues of World War I a... \\
+emotion & 0.815 & -0.21 & 79.8 & World War I erupted from a complex interplay of factors.  Na... \\
+base & 0.877 & -0.04 & 89.4 & World War II stemmed from unresolved issues of World War I a... \\
+tone & 0.876 & -0.05 & 85.6 & World War II erupted from unresolved tensions following Worl... \\
+formality & 0.876 & 0.05 & 92.8 & World War II stemmed from unresolved issues of World War I a... \\
+emotion & 0.831 & -0.22 & 84.0 & World War I erupted from a complex interplay of factors.  Na... \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Public Health – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\
+\hline
+base & 0.861 & 0.01 & 85.2 & Vaccines primarily stimulate the immune system to produce an... \\
+tone & 0.858 & 0.04 & 84.0 & Vaccines are crucial for individual and public health. They ... \\
+formality & 0.813 & 0.20 & 85.8 & Vaccine efficacy measures how much a vaccine reduces disease... \\
+emotion & 0.862 & -0.07 & 83.8 & Vaccines are crucial for public health because they provide ... \\
+base & 0.863 & 0.04 & 82.2 & Vaccine uptake is influenced by a complex interplay of facto... \\
+tone & 0.805 & 0.03 & 87.4 & Vaccines are crucial for individual and public health. They ... \\
+formality & 0.803 & 0.29 & 82.2 & Vaccine efficacy measures how well a vaccine prevents diseas... \\
+emotion & 0.813 & -0.07 & 84.4 & Vaccines are crucial for public health because they prevent ... \\
+base & 0.845 & 0.16 & 80.2 & Public health campaigns reduce disease spread through multif... \\
+tone & 0.817 & 0.02 & 86.0 & Vaccines are crucial for individual and public health. They ... \\
+formality & 0.794 & 0.27 & 82.8 & Vaccine efficacy measures how much a vaccine reduces disease... \\
+emotion & 0.822 & -0.08 & 87.0 & Vaccines are crucial for public health because they prevent ... \\
+\hline
+\end{tabular}
+\end{table}
+\end{document}

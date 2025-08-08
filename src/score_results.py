@@ -1,97 +1,120 @@
-import sys
-from pathlib import Path
+# file: model_tables.py
 import pandas as pd
-from bert_score import score as bert_score
-from nltk.sentiment import SentimentIntensityAnalyzer
+from bert_score import score
+from textblob import TextBlob
+from pathlib import Path
 
-IN_PATH = Path(sys.argv[1])  # responses_raw_TIMESTAMP.csv
-OUT_DIR = Path("src/outputs")
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+# === CONFIG ===
+CSV_PATH = Path(
+    "~/Desktop/prompt-sensitivity-llms/src/outputs/cleared/responses_gemini_Gemini-1.5-Pro_5_20250807_1439.csv"
+).expanduser()
+MODEL_LABEL = "Gemini-1.5-Pro"
+OUTPUT_DIR = Path("./tables_out")
+OUTPUT_DIR.mkdir(exist_ok=True)
 
-# Load
-df = pd.read_csv(IN_PATH)
-
-# Filter out errors/empties
-df = df[~df["response"].fillna("").str.startswith("[ERROR]")]
-df["response"] = df["response"].fillna("").astype(str)
-
-# --- Pair each (model, run, domain) variant with its base ---
-base = df[df["variant"] == "base"][["model", "run", "domain", "response"]]
-base = base.rename(columns={"response": "base_response"})
-
-merged = df.merge(base, on=["model", "run", "domain"], how="inner")
-merged = merged[merged["variant"] != "base"].copy()
-
-
-# --- BERTScore: compare variant response to base_response (same model/run/domain) ---
-def bertscore_block(sub):
-    cand = sub["response"].tolist()
-    ref = sub["base_response"].tolist()
-    P, R, F = bert_score(cand, ref, lang="en", rescale_with_baseline=True)
-    sub = sub.copy()
-    sub["bertscore_f1"] = F.tolist()
-    sub["bertscore_p"] = P.tolist()
-    sub["bertscore_r"] = R.tolist()
-    return sub
-
-
-scored = merged.groupby(["model", "run", "domain", "variant"], group_keys=False).apply(
-    bertscore_block
-)
-
-# --- Sentiment (VADER compound) for ALL responses ---
-sia = SentimentIntensityAnalyzer()
-df["sentiment"] = df["response"].apply(lambda t: sia.polarity_scores(t)["compound"])
-
-# For the delta, join base sentiment
-base_sent = df[df["variant"] == "base"][["model", "run", "domain", "sentiment"]]
-base_sent = base_sent.rename(columns={"sentiment": "base_sentiment"})
-sent_M = df.merge(base_sent, on=["model", "run", "domain"], how="left")
-sent_M["delta_sentiment"] = sent_M["sentiment"] - sent_M["base_sentiment"]
-
-# Keep only non-base rows for delta reporting
-sent_delta = sent_M[sent_M["variant"] != "base"][
-    [
-        "model",
-        "run",
-        "domain",
-        "variant",
-        "delta_sentiment",
-        "sentiment",
-        "base_sentiment",
-    ]
+# === LOAD CSV ===
+cols_needed = [
+    "domain",
+    "base_id",
+    "variant",
+    "run_id",
+    "response",
+    "word_len",
+    "response_id",
 ]
-
-# === Write per-run detail CSVs ===
-scored_out = (
-    OUT_DIR / f"bertscore_perrun_{IN_PATH.stem.split('responses_raw_')[-1]}.csv"
-)
-sent_out = OUT_DIR / f"sentiment_perrun_{IN_PATH.stem.split('responses_raw_')[-1]}.csv"
-scored.to_csv(scored_out, index=False)
-sent_delta.to_csv(sent_out, index=False)
-print(f"✅ Saved: {scored_out}")
-print(f"✅ Saved: {sent_out}")
+df = pd.read_csv(CSV_PATH, usecols=cols_needed)
 
 
-# === Aggregates for tables (mean ± sd across domains and runs) ===
-def agg_berts(dfB):
-    g = dfB.groupby(["model", "variant"])["bertscore_f1"]
-    out = g.agg(["mean", "std", "count"]).reset_index()
-    return out
+# === FUNCTIONS ===
+def compute_sentiment(text):
+    return TextBlob(text).sentiment.polarity
 
 
-def agg_sent(dfS):
-    g = dfS.groupby(["model", "variant"])["delta_sentiment"]
-    out = g.agg(["mean", "std", "count"]).reset_index()
-    return out
+def make_tables_for_model(df_model, model_label):
+    domains = df_model["domain"].unique()
+    latex_all = []
+
+    for dom in domains:
+        dom_df = df_model[df_model["domain"] == dom]
+        table_rows = []
+
+        for base_id in dom_df["base_id"].unique():
+            base_group = dom_df[dom_df["base_id"] == base_id]
+
+            # Baseline = paraphrase_neutral
+            base_texts = base_group[base_group["variant"] == "paraphrase_neutral"][
+                "response"
+            ].tolist()
+            if not base_texts:
+                continue
+            base_concat = " ".join(base_texts)  # reference for BERTScore
+
+            for var in ["base", "tone", "formality", "emotion"]:
+                var_texts = base_group[base_group["variant"] == var][
+                    "response"
+                ].tolist()
+                if not var_texts:
+                    continue
+
+                # Compute BERTScore vs baseline
+                P, R, F1 = score(
+                    var_texts, [base_concat] * len(var_texts), lang="en", verbose=False
+                )
+                bert_mean = F1.mean().item()
+
+                # Sentiment polarity mean
+                sent_mean = sum(compute_sentiment(t) for t in var_texts) / len(
+                    var_texts
+                )
+
+                # Word length mean
+                lengths = base_group[base_group["variant"] == var]["word_len"].tolist()
+                len_mean = sum(lengths) / len(lengths)
+
+                # Example snippet
+                snippet = var_texts[0][:60].replace("\n", " ") + "..."
+
+                table_rows.append((var, bert_mean, sent_mean, len_mean, snippet))
+
+        # Build LaTeX table for domain
+        latex = []
+        latex.append(f"\\begin{{table}}[h]")
+        latex.append(f"\\centering")
+        latex.append(f"\\caption{{{model_label} – {dom} – Variant Sensitivity}}")
+        latex.append(f"\\label{{tab:{model_label}_{dom.replace(' ', '_')}}}")
+        latex.append(f"\\begin{{tabular}}{{lccc p{{6cm}}}}")
+        latex.append("\\hline")
+        latex.append(
+            "Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len & Example Snippet \\\\"
+        )
+        latex.append("\\hline")
+
+        for row in table_rows:
+            latex.append(
+                f"{row[0]} & {row[1]:.3f} & {row[2]:.2f} & {row[3]:.1f} & {row[4]} \\\\"
+            )
+
+        latex.append("\\hline")
+        latex.append("\\end{tabular}")
+        latex.append("\\end{table}")
+        latex_all.append("\n".join(latex))
+
+    return "\n\n".join(latex_all)
 
 
-aggB = agg_berts(scored)
-aggS = agg_sent(sent_delta)
+# === RUN ===
+merged_tables = make_tables_for_model(df, MODEL_LABEL)
 
-aggB_out = OUT_DIR / f"bertscore_agg_{IN_PATH.stem.split('responses_raw_')[-1]}.csv"
-aggS_out = OUT_DIR / f"sentiment_agg_{IN_PATH.stem.split('responses_raw_')[-1]}.csv"
-aggB.to_csv(aggB_out, index=False)
-aggS.to_csv(aggS_out, index=False)
-print(f"✅ Saved: {aggB_out}")
-print(f"✅ Saved: {aggS_out}")
+out_path = OUTPUT_DIR / f"{MODEL_LABEL}_All_Domains.tex"
+with open(out_path, "w") as f:
+    f.write("\\documentclass[12pt,a4paper]{article}\n")
+    f.write("\\usepackage[margin=2.5cm]{geometry}\n")
+    f.write("\\usepackage{array}\n")
+    f.write("\\usepackage{booktabs}\n")
+    f.write(f"\\title{{{MODEL_LABEL} – Variant Sensitivity Across Domains}}\n")
+    f.write("\\author{}\n\\date{}\n")
+    f.write("\\begin{document}\n\\maketitle\n\n")
+    f.write(merged_tables)
+    f.write("\n\\end{document}\n")
+
+print(f"✅ Full LaTeX file saved: {out_path}")
