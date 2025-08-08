@@ -1,0 +1,130 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{LLaMA-3.1-8B-Instruct – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Environmental Policy – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.884 & -0.02 & 97.6  \\
+tone & 0.796 & 0.03 & 98.0  \\
+formality & 0.787 & 0.03 & 92.8  \\
+emotion & 0.799 & -0.04 & 95.8  \\
+base & 0.874 & 0.14 & 98.8  \\
+tone & 0.795 & 0.01 & 97.8  \\
+formality & 0.801 & -0.01 & 89.8  \\
+emotion & 0.795 & 0.02 & 98.0  \\
+base & 0.847 & 0.10 & 97.8  \\
+tone & 0.812 & -0.00 & 96.4  \\
+formality & 0.840 & 0.00 & 89.2  \\
+emotion & 0.807 & 0.03 & 96.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Scientific Consensus – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.861 & 0.20 & 97.0  \\
+tone & 0.829 & 0.15 & 98.0  \\
+formality & 0.822 & 0.13 & 97.0  \\
+emotion & 0.816 & 0.08 & 97.4  \\
+base & 0.876 & 0.04 & 97.2  \\
+tone & 0.834 & -0.00 & 98.4  \\
+formality & 0.825 & 0.10 & 97.4  \\
+emotion & 0.818 & 0.05 & 94.4  \\
+base & 0.866 & 0.13 & 97.4  \\
+tone & 0.829 & 0.09 & 97.2  \\
+formality & 0.866 & 0.08 & 97.8  \\
+emotion & 0.811 & -0.02 & 95.2  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Political Systems – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.870 & 0.02 & 91.6  \\
+tone & 0.805 & 0.17 & 98.4  \\
+formality & 0.818 & 0.06 & 74.0  \\
+emotion & 0.813 & -0.01 & 98.0  \\
+base & 0.899 & 0.05 & 93.2  \\
+tone & 0.806 & 0.21 & 97.2  \\
+formality & 0.837 & 0.04 & 78.8  \\
+emotion & 0.799 & -0.02 & 97.6  \\
+base & 0.855 & 0.03 & 98.2  \\
+tone & 0.827 & 0.20 & 97.6  \\
+formality & 0.791 & 0.01 & 73.0  \\
+emotion & 0.802 & -0.01 & 96.6  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Historical Events – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.883 & 0.14 & 97.8  \\
+tone & 0.814 & -0.08 & 96.8  \\
+formality & 0.819 & 0.08 & 95.0  \\
+emotion & 0.809 & -0.24 & 96.8  \\
+base & 0.880 & -0.08 & 97.0  \\
+tone & 0.845 & -0.07 & 95.8  \\
+formality & 0.848 & 0.02 & 93.6  \\
+emotion & 0.834 & -0.12 & 96.8  \\
+base & 0.857 & -0.08 & 94.0  \\
+tone & 0.854 & -0.02 & 97.0  \\
+formality & 0.861 & -0.06 & 97.4  \\
+emotion & 0.834 & -0.23 & 97.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Public Health – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.849 & 0.08 & 96.4  \\
+tone & 0.859 & 0.05 & 97.2  \\
+formality & 0.814 & 0.05 & 99.2  \\
+emotion & 0.857 & 0.01 & 96.2  \\
+base & 0.890 & 0.04 & 89.0  \\
+tone & 0.795 & 0.01 & 97.0  \\
+formality & 0.798 & 0.02 & 95.2  \\
+emotion & 0.801 & 0.01 & 97.6  \\
+base & 0.861 & 0.09 & 97.0  \\
+tone & 0.828 & -0.01 & 97.0  \\
+formality & 0.808 & -0.07 & 96.4  \\
+emotion & 0.833 & -0.01 & 97.8  \\
+\hline
+\end{tabular}
+\end{table}
+\end{document}
