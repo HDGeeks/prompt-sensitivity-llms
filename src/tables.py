@@ -1,66 +1,80 @@
+import re
 import pandas as pd
 from pathlib import Path
 
+DOM_FULL_ORDER = [
+    "Public Health",
+    "Historical Events",
+    "Political Systems",
+    "Scientific Consensus",
+    "Environmental Policy",
+]
 
-def compute_tone_row_from_file(
-    csv_path,
-    model_label="MODEL",
-    baseline_variant="base",
-    domains_order=(
-        "Public Health",
-        "Historical Events",
-        "Political Systems",
-        "Scientific Consensus",
-        "Environmental Policy",
-    ),
-    domain_map=None,
-):
-    df = pd.read_csv(csv_path)
-    required_cols = {"domain", "variant", "bert", "sent", "wlen"}
-    missing = required_cols - set(df.columns)
-    if missing:
-        raise ValueError(f"Missing columns: {sorted(missing)}")
 
-    # Abbreviations
-    default_map = {
-        "Public Health": "PH",
-        "Historical Events": "HE",
-        "Political Systems": "PS",
-        "Scientific Consensus": "SC",
-        "Environmental Policy": "EP",
-    }
-    name_map = domain_map or default_map
-    df = df.copy()
-    df["abbr"] = df["domain"].map(name_map).fillna(df["domain"])
+def _norm(s: str) -> str:
+    return " ".join(str(s).replace("\u00a0", " ").split()).strip()
 
-    cells = [model_label]
-    for dom_full in domains_order:
-        dom_abbr = name_map.get(dom_full, dom_full)
-        sub = df[df["abbr"] == dom_abbr]
-        if sub.empty:
-            raise ValueError(f"Domain not found: {dom_full}")
 
-        try:
-            base = sub[sub["variant"] == baseline_variant].iloc[0]
-            tone = sub[sub["variant"] == "tone"].iloc[0]
-        except IndexError:
-            raise ValueError(
-                f"Missing rows for {dom_full}: need '{baseline_variant}' and 'tone'"
+def parse_aggregated_tex(tex_path: Path) -> pd.DataFrame:
+    text = Path(tex_path).read_text(encoding="utf-8")
+    cap_re = re.compile(r"\\caption\{([^}]*)\}")
+    row_re = re.compile(
+        r"^(base|tone|formality|emotion)\s*&\s*([0-9.]+)\s*&\s*([\-0-9.]+)\s*&\s*([0-9.]+)"
+    )
+    rows, current_domain = [], None
+    for raw in text.splitlines():
+        line = raw.strip()
+        m = cap_re.search(line)
+        if m:
+            parts = re.split(r"\s+\u2013\s+|\s+-\s+", _norm(m.group(1)))
+            if len(parts) >= 3:
+                current_domain = _norm(parts[1])
+            continue
+        m = row_re.match(line)
+        if m and current_domain:
+            rows.append(
+                (
+                    current_domain,
+                    m.group(1),
+                    float(m.group(2)),
+                    float(m.group(3)),
+                    float(m.group(4)),
+                )
             )
+        if line.startswith(r"\end{tabular}"):
+            current_domain = None
+    if not rows:
+        raise ValueError("No rows parsed.")
+    df = pd.DataFrame(rows, columns=["domain", "variant", "bert", "sent", "wlen"])
+    df["domain"] = df["domain"].map(_norm)
+    return df
 
-        f1 = float(tone["bert"])
-        delta = float(tone["sent"]) - float(base["sent"])
-        len_pct = 100.0 * float(tone["wlen"]) / float(base["wlen"])
 
-        cells.append(f"{f1:.3f} & {delta:+.2f} & {len_pct:.1f}")
+def tone_row_multiline(
+    tex_path: Path, model_label="MODEL", baseline_variant="base"
+) -> str:
+    df = parse_aggregated_tex(tex_path)
+    found = {_norm(d) for d in df["domain"].unique()}
+    missing = [d for d in DOM_FULL_ORDER if _norm(d) not in found]
+    if missing:
+        raise ValueError(f"Missing domains {missing}. Found {sorted(found)}")
 
-    return " & ".join(cells) + " \\\\"
+    lines = [model_label]
+    for dom in DOM_FULL_ORDER:
+        sub = df[df["domain"] == _norm(dom)]
+        base = sub[sub["variant"] == baseline_variant].iloc[0]
+        tone = sub[sub["variant"] == "tone"].iloc[0]
+        f1 = tone["bert"]
+        delta = tone["sent"] - base["sent"]
+        len_pct = 100.0 * tone["wlen"] / base["wlen"]
+        lines.append(f"& {f1:.3f} & {delta:+.2f} & {len_pct:.1f}")
+    lines[-1] += " \\\\"
+    return "\n".join(lines)
 
 
-# usage
-row = compute_tone_row_from_file(
-    Path("src/results/Gemini-1.5-Pro_All_Domains_aggregated_rows.csv"),
-    model_label="Gemini 1.5 Pro",
-    baseline_variant="base",  # or "paraphrase_neutral" if you switch baseline later
+print(
+    tone_row_multiline(
+        Path("src/results/OpenAI GPT-4o_All_Domains_aggregated_rows.tex"),
+        "OpenAI GPT-4o",
+    )
 )
-print(row)
