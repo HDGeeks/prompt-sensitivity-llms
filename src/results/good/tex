@@ -1,0 +1,110 @@
+
+\begin{table}[h]
+\centering
+\caption{Public Health – Variant Sensitivity Across Models}
+\label{tab:public-health-all-models}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+ & \multicolumn{3}{c}{Base} & \multicolumn{3}{c}{Tone} & \multicolumn{3}{c}{Formality} & \multicolumn{3}{c}{Emotion} \\
+Model & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len \\
+\midrule
+Gemini 1.5 Pro & 0.857 & 0.07 & 82.5 & 0.827 & 0.03 & 85.8 & 0.804 & 0.25 & 83.6 & 0.832 & -0.07 & 85.1 \\
+Gemini 2.0 Flash & 0.858 & 0.06 & 86.9 & 0.820 & -0.06 & 90.9 & 0.802 & 0.14 & 84.7 & 0.829 & -0.03 & 89.7 \\
+LLaMA-3.1 8B Instruct & 0.867 & 0.07 & 94.1 & 0.828 & 0.01 & 97.1 & 0.807 & 0.00 & 96.9 & 0.830 & 0.00 & 97.2 \\
+Mistral-7B Instruct v0.3 & 0.863 & 0.07 & 58.7 & 0.841 & 0.01 & 60.2 & 0.816 & -0.02 & 81.3 & 0.839 & -0.06 & 52.0 \\
+OpenAI GPT-3.5 Turbo & 0.864 & 0.05 & 92.3 & 0.834 & -0.02 & 99.9 & 0.814 & 0.21 & 100.3 & 0.833 & -0.02 & 98.9 \\
+OpenAI GPT-4o Mini & 0.860 & 0.06 & 96.4 & 0.823 & 0.01 & 97.8 & 0.802 & 0.15 & 95.9 & 0.828 & 0.03 & 97.5 \\
+OpenAI GPT-4o & 0.864 & 0.07 & 98.7 & 0.835 & 0.02 & 98.6 & 0.808 & 0.14 & 94.7 & 0.837 & 0.04 & 98.5 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Historical Events – Variant Sensitivity Across Models}
+\label{tab:historical-events-all-models}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+ & \multicolumn{3}{c}{Base} & \multicolumn{3}{c}{Tone} & \multicolumn{3}{c}{Formality} & \multicolumn{3}{c}{Emotion} \\
+Model & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len \\
+\midrule
+Gemini 1.5 Pro & 0.868 & 0.04 & 84.7 & 0.843 & -0.07 & 88.0 & 0.841 & 0.05 & 90.3 & 0.815 & -0.22 & 82.2 \\
+Gemini 2.0 Flash & 0.875 & 0.00 & 88.3 & 0.837 & -0.05 & 90.8 & 0.841 & 0.07 & 89.6 & 0.836 & -0.05 & 88.7 \\
+LLaMA-3.1 8B Instruct & 0.873 & -0.01 & 96.3 & 0.837 & -0.05 & 96.5 & 0.843 & 0.01 & 95.3 & 0.826 & -0.20 & 97.0 \\
+Mistral-7B Instruct v0.3 & 0.871 & 0.09 & 68.5 & 0.835 & -0.04 & 74.9 & 0.832 & 0.10 & 77.9 & 0.817 & 0.09 & 69.9 \\
+OpenAI GPT-3.5 Turbo & 0.880 & 0.02 & 97.1 & 0.837 & -0.08 & 97.4 & 0.840 & -0.04 & 97.3 & 0.824 & -0.12 & 95.4 \\
+OpenAI GPT-4o Mini & 0.876 & 0.06 & 95.4 & 0.839 & -0.01 & 97.2 & 0.842 & 0.03 & 94.1 & 0.828 & -0.09 & 94.5 \\
+OpenAI GPT-4o & 0.880 & 0.09 & 98.3 & 0.841 & 0.06 & 100.1 & 0.838 & 0.05 & 93.4 & 0.825 & -0.10 & 98.5 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Political Systems – Variant Sensitivity Across Models}
+\label{tab:political-systems-all-models}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+ & \multicolumn{3}{c}{Base} & \multicolumn{3}{c}{Tone} & \multicolumn{3}{c}{Formality} & \multicolumn{3}{c}{Emotion} \\
+Model & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len \\
+\midrule
+Gemini 1.5 Pro & 0.843 & 0.02 & 82.7 & 0.804 & 0.20 & 91.2 & 0.807 & 0.09 & 85.1 & 0.799 & -0.01 & 87.1 \\
+Gemini 2.0 Flash & 0.856 & 0.03 & 84.9 & 0.802 & 0.20 & 83.1 & 0.794 & 0.02 & 84.7 & 0.799 & 0.05 & 87.5 \\
+LLaMA-3.1 8B Instruct & 0.875 & 0.04 & 94.3 & 0.813 & 0.19 & 97.7 & 0.815 & 0.04 & 75.3 & 0.805 & -0.02 & 97.4 \\
+Mistral-7B Instruct v0.3 & 0.863 & 0.06 & 78.2 & 0.815 & 0.29 & 62.5 & 0.828 & 0.01 & 79.7 & 0.811 & 0.01 & 53.5 \\
+OpenAI GPT-3.5 Turbo & 0.872 & 0.07 & 97.5 & 0.828 & 0.26 & 93.5 & 0.823 & 0.03 & 98.0 & 0.823 & 0.02 & 96.5 \\
+OpenAI GPT-4o Mini & 0.869 & 0.06 & 95.0 & 0.824 & 0.19 & 97.6 & 0.825 & 0.05 & 97.9 & 0.819 & 0.03 & 95.8 \\
+OpenAI GPT-4o & 0.869 & 0.07 & 94.9 & 0.818 & 0.20 & 97.6 & 0.825 & 0.04 & 98.4 & 0.813 & 0.03 & 98.3 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Scientific Consensus – Variant Sensitivity Across Models}
+\label{tab:scientific-consensus-all-models}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+ & \multicolumn{3}{c}{Base} & \multicolumn{3}{c}{Tone} & \multicolumn{3}{c}{Formality} & \multicolumn{3}{c}{Emotion} \\
+Model & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len \\
+\midrule
+Gemini 1.5 Pro & 0.859 & 0.11 & 81.5 & 0.822 & 0.17 & 86.3 & 0.833 & 0.08 & 82.5 & 0.807 & 0.08 & 80.9 \\
+Gemini 2.0 Flash & 0.866 & 0.15 & 91.4 & 0.817 & 0.10 & 88.3 & 0.827 & 0.10 & 86.4 & 0.801 & -0.05 & 82.1 \\
+LLaMA-3.1 8B Instruct & 0.868 & 0.12 & 97.2 & 0.831 & 0.08 & 97.9 & 0.838 & 0.10 & 97.4 & 0.815 & 0.04 & 95.7 \\
+Mistral-7B Instruct v0.3 & 0.869 & 0.08 & 62.3 & 0.841 & 0.00 & 54.5 & 0.839 & 0.09 & 74.4 & 0.817 & -0.01 & 53.6 \\
+OpenAI GPT-3.5 Turbo & 0.868 & 0.12 & 97.6 & 0.832 & 0.07 & 97.9 & 0.839 & 0.09 & 98.0 & 0.813 & 0.10 & 96.7 \\
+OpenAI GPT-4o Mini & 0.868 & 0.12 & 96.2 & 0.832 & 0.09 & 97.1 & 0.838 & 0.09 & 96.9 & 0.814 & 0.05 & 96.1 \\
+OpenAI GPT-4o & 0.870 & 0.05 & 96.9 & 0.832 & 0.11 & 96.1 & 0.831 & 0.08 & 97.4 & 0.810 & 0.03 & 96.1 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Environmental Policy – Variant Sensitivity Across Models}
+\label{tab:environmental-policy-all-models}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccc}
+\toprule
+ & \multicolumn{3}{c}{Base} & \multicolumn{3}{c}{Tone} & \multicolumn{3}{c}{Formality} & \multicolumn{3}{c}{Emotion} \\
+Model & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len & BERT & Sent & Len \\
+\midrule
+Gemini 1.5 Pro & 0.855 & 0.05 & 89.5 & 0.795 & 0.20 & 83.9 & 0.798 & 0.02 & 87.1 & 0.791 & 0.06 & 86.5 \\
+Gemini 2.0 Flash & 0.860 & 0.04 & 89.9 & 0.796 & 0.08 & 87.9 & 0.797 & 0.05 & 91.2 & 0.797 & -0.09 & 84.9 \\
+LLaMA-3.1 8B Instruct & 0.869 & 0.07 & 98.1 & 0.801 & 0.01 & 97.4 & 0.809 & 0.01 & 90.6 & 0.800 & 0.00 & 96.7 \\
+Mistral-7B Instruct v0.3 & 0.859 & 0.02 & 71.7 & 0.804 & 0.03 & 71.3 & 0.825 & 0.09 & 79.0 & 0.799 & -0.07 & 61.8 \\
+OpenAI GPT-3.5 Turbo & 0.873 & 0.04 & 96.5 & 0.818 & 0.04 & 99.2 & 0.822 & 0.06 & 97.8 & 0.814 & -0.02 & 98.3 \\
+OpenAI GPT-4o Mini & 0.870 & 0.05 & 95.7 & 0.822 & 0.03 & 97.3 & 0.825 & 0.04 & 94.6 & 0.810 & 0.04 & 96.9 \\
+OpenAI GPT-4o & 0.869 & 0.07 & 99.0 & 0.811 & 0.03 & 97.7 & 0.819 & 0.01 & 95.7 & 0.806 & 0.04 & 100.1 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

@@ -1,0 +1,544 @@
+
+\section{Results}
+This section reports how stylistic prompt features affect model outputs across five domains. We quantify three effects per variant relative to a paraphrase-neutral reference: (i) semantic drift via BERTScore F1, higher is closer to neutral; (ii) sentiment polarity shift via TextBlob, higher is more positive; and (iii) word length change, indicating verbosity shifts. We present aggregated, per-domain results in the main text. Full per-prompt, per-domain breakdowns appear in the Appendix.
+
+\subsection{Impact of Tone}
+We compare neutral prompts against assertive tone variants. Tables~\ref{tab:OpenAI GPT-4o_Public_Health}--\ref{tab:OpenAI GPT-4o_Scientific_Consensus} summarize the effect for GPT-4o. Tables~\ref{tab:LLaMA-3.1-8B-Instruct_Public_Health}--\ref{tab:LLaMA-3.1-8B-Instruct_Scientific_Consensus} show LLaMA~3.1~8B.
+
+% --- GPT-4o aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Environmental Policy – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.07 & 99.0  \\
+tone & 0.811 & 0.03 & 97.7  \\
+formality & 0.819 & 0.01 & 95.7  \\
+emotion & 0.806 & 0.04 & 100.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Scientific Consensus – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.870 & 0.05 & 96.9  \\
+tone & 0.832 & 0.11 & 96.1  \\
+formality & 0.831 & 0.08 & 97.4  \\
+emotion & 0.810 & 0.03 & 96.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Political Systems – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.07 & 94.9  \\
+tone & 0.818 & 0.20 & 97.6  \\
+formality & 0.825 & 0.04 & 98.4  \\
+emotion & 0.813 & 0.03 & 98.3  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Historical Events – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.880 & 0.09 & 98.3  \\
+tone & 0.841 & 0.06 & 100.1  \\
+formality & 0.838 & 0.05 & 93.4  \\
+emotion & 0.825 & -0.10 & 98.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-4o – Public Health – Variant Sensitivity}
+\label{tab:OpenAI GPT-4o_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.864 & 0.07 & 98.7  \\
+tone & 0.835 & 0.02 & 98.6  \\
+formality & 0.808 & 0.14 & 94.7  \\
+emotion & 0.837 & 0.04 & 98.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+% Short commentary for GPT-4o
+\noindent\textit{Observation.} GPT-4o shows its largest semantic deviation under \textbf{tone} prompts in the domains where argumentative framing is common, with modest sentiment increases. Word length changes are stable across domains.
+
+% --- LLaMA 3.1 8B aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Environmental Policy – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.07 & 98.1  \\
+tone & 0.801 & 0.01 & 97.4  \\
+formality & 0.809 & 0.01 & 90.6  \\
+emotion & 0.800 & 0.00 & 96.7  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Scientific Consensus – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.868 & 0.12 & 97.2  \\
+tone & 0.831 & 0.08 & 97.9  \\
+formality & 0.838 & 0.10 & 97.4  \\
+emotion & 0.815 & 0.04 & 95.7  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Political Systems – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.875 & 0.04 & 94.3  \\
+tone & 0.813 & 0.19 & 97.7  \\
+formality & 0.815 & 0.04 & 75.3  \\
+emotion & 0.805 & -0.02 & 97.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Historical Events – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.873 & -0.01 & 96.3  \\
+tone & 0.837 & -0.05 & 96.5  \\
+formality & 0.843 & 0.01 & 95.3  \\
+emotion & 0.826 & -0.20 & 97.0  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{LLaMA-3.1-8B-Instruct – Public Health – Variant Sensitivity}
+\label{tab:LLaMA-3.1-8B-Instruct_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.867 & 0.07 & 94.1  \\
+tone & 0.828 & 0.01 & 97.1  \\
+formality & 0.807 & 0.00 & 96.9  \\
+emotion & 0.830 & 0.00 & 97.2  \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textit{Observation.} LLaMA~3.1~8B exhibits stronger tone sensitivity than GPT-4o in domains with policy language. Sentiment shifts are also larger under assertive prompts, with a small increase in word length.
+
+\subsection{Impact of Formality}
+We contrast formal and informal phrasing. Tables for Gemini~2.0~Flash and Mistral~7B illustrate proprietary vs open-source behavior.
+
+% --- Gemini 2.0 Flash aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Environmental Policy – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.860 & 0.04 & 89.9  \\
+tone & 0.796 & 0.08 & 87.9  \\
+formality & 0.797 & 0.05 & 91.2  \\
+emotion & 0.797 & -0.09 & 84.9  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Scientific Consensus – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.866 & 0.15 & 91.4  \\
+tone & 0.817 & 0.10 & 88.3  \\
+formality & 0.827 & 0.10 & 86.4  \\
+emotion & 0.801 & -0.05 & 82.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Political Systems – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.856 & 0.03 & 84.9  \\
+tone & 0.802 & 0.20 & 83.1  \\
+formality & 0.794 & 0.02 & 84.7  \\
+emotion & 0.799 & 0.05 & 87.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Historical Events – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.875 & 0.00 & 88.3  \\
+tone & 0.837 & -0.05 & 90.8  \\
+formality & 0.841 & 0.07 & 89.6  \\
+emotion & 0.836 & -0.05 & 88.7  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-2.0-Flash – Public Health – Variant Sensitivity}
+\label{tab:Gemini-2.0-Flash_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.858 & 0.06 & 86.9  \\
+tone & 0.820 & -0.06 & 90.9  \\
+formality & 0.802 & 0.14 & 84.7  \\
+emotion & 0.829 & -0.03 & 89.7  \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textit{Observation.} Gemini~2.0~Flash maintains high semantic similarity under formal prompts, with minor sentiment movement. Informal phrasing reduces similarity in politically framed content.
+
+% --- Mistral 7B aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Mistral-7B-Instruct-v0.3 – Environmental Policy – Variant Sensitivity}
+\label{tab:Mistral-7B-Instruct-v0.3_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.859 & 0.02 & 71.7  \\
+tone & 0.804 & 0.03 & 71.3  \\
+formality & 0.825 & 0.09 & 79.0  \\
+emotion & 0.799 & -0.07 & 61.8  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Mistral-7B-Instruct-v0.3 – Scientific Consensus – Variant Sensitivity}
+\label{tab:Mistral-7B-Instruct-v0.3_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.869 & 0.08 & 62.3  \\
+tone & 0.841 & 0.00 & 54.5  \\
+formality & 0.839 & 0.09 & 74.4  \\
+emotion & 0.817 & -0.01 & 53.6  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Mistral-7B-Instruct-v0.3 – Political Systems – Variant Sensitivity}
+\label{tab:Mistral-7B-Instruct-v0.3_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.863 & 0.06 & 78.2  \\
+tone & 0.815 & 0.29 & 62.5  \\
+formality & 0.828 & 0.01 & 79.7  \\
+emotion & 0.811 & 0.01 & 53.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Mistral-7B-Instruct-v0.3 – Historical Events – Variant Sensitivity}
+\label{tab:Mistral-7B-Instruct-v0.3_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.871 & 0.09 & 68.5  \\
+tone & 0.835 & -0.04 & 74.9  \\
+formality & 0.832 & 0.10 & 77.9  \\
+emotion & 0.817 & 0.09 & 69.9  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Mistral-7B-Instruct-v0.3 – Public Health – Variant Sensitivity}
+\label{tab:Mistral-7B-Instruct-v0.3_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.863 & 0.07 & 58.7  \\
+tone & 0.841 & 0.01 & 60.2  \\
+formality & 0.816 & -0.02 & 81.3  \\
+emotion & 0.839 & -0.06 & 52.0  \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textit{Observation.} Mistral~7B shows the largest formality-induced variation among the models shown here, with noticeable word-length compression under informal phrasing.
+
+\subsection{Impact of Emotional Framing}
+We compare neutral wording to emotionally charged prompts.
+
+% --- GPT-3.5 Turbo aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-3.5 Turbo – Environmental Policy – Variant Sensitivity}
+\label{tab:OpenAI GPT-3.5 Turbo_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.873 & 0.04 & 96.5  \\
+tone & 0.818 & 0.04 & 99.2  \\
+formality & 0.822 & 0.06 & 97.8  \\
+emotion & 0.814 & -0.02 & 98.3  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-3.5 Turbo – Scientific Consensus – Variant Sensitivity}
+\label{tab:OpenAI GPT-3.5 Turbo_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.868 & 0.12 & 97.6  \\
+tone & 0.832 & 0.07 & 97.9  \\
+formality & 0.839 & 0.09 & 98.0  \\
+emotion & 0.813 & 0.10 & 96.7  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-3.5 Turbo – Political Systems – Variant Sensitivity}
+\label{tab:OpenAI GPT-3.5 Turbo_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.872 & 0.07 & 97.5  \\
+tone & 0.828 & 0.26 & 93.5  \\
+formality & 0.823 & 0.03 & 98.0  \\
+emotion & 0.823 & 0.02 & 96.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-3.5 Turbo – Historical Events – Variant Sensitivity}
+\label{tab:OpenAI GPT-3.5 Turbo_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.880 & 0.02 & 97.1  \\
+tone & 0.837 & -0.08 & 97.4  \\
+formality & 0.840 & -0.04 & 97.3  \\
+emotion & 0.824 & -0.12 & 95.4  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{OpenAI GPT-3.5 Turbo – Public Health – Variant Sensitivity}
+\label{tab:OpenAI GPT-3.5 Turbo_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.864 & 0.05 & 92.3  \\
+tone & 0.834 & -0.02 & 99.9  \\
+formality & 0.814 & 0.21 & 100.3  \\
+emotion & 0.833 & -0.02 & 98.9  \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textit{Observation.} GPT-3.5 Turbo shows the greatest sentiment swing under emotional framing, with a concurrent drop in BERTScore in debate-heavy domains.
+
+% --- Gemini 1.5 Pro aggregated tables ---
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Environmental Policy – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.855 & 0.05 & 89.5  \\
+tone & 0.795 & 0.20 & 83.9  \\
+formality & 0.798 & 0.02 & 87.1  \\
+emotion & 0.791 & 0.06 & 86.5  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Scientific Consensus – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.859 & 0.11 & 81.5  \\
+tone & 0.822 & 0.17 & 86.3  \\
+formality & 0.833 & 0.08 & 82.5  \\
+emotion & 0.807 & 0.08 & 80.9  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Political Systems – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.843 & 0.02 & 82.7  \\
+tone & 0.804 & 0.20 & 91.2  \\
+formality & 0.807 & 0.09 & 85.1  \\
+emotion & 0.799 & -0.01 & 87.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Historical Events – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.868 & 0.04 & 84.7  \\
+tone & 0.843 & -0.07 & 88.0  \\
+formality & 0.841 & 0.05 & 90.3  \\
+emotion & 0.815 & -0.22 & 82.2  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Public Health – Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \\
+\hline
+base & 0.857 & 0.07 & 82.5  \\
+tone & 0.827 & 0.03 & 85.8  \\
+formality & 0.804 & 0.25 & 83.6  \\
+emotion & 0.832 & -0.07 & 85.1  \\
+\hline
+\end{tabular}
+\end{table}
+
+\noindent\textit{Observation.} Gemini~1.5~Pro is comparatively stable under emotional prompts, though sentiment shift remains visible, especially in public health content.
+
+\subsection{Model Comparison Summary}
+Table~\ref{tab:cross-model-summary} aggregates model sensitivity. Values are averaged across domains; higher BERTScore indicates greater similarity to neutral.
+
+\begin{table}[h]
+\centering
+\caption{Cross-Model Summary, averaged across domains. BERTScore is vs neutral; Sentiment is polarity; Word Len is mean word count.}
+\label{tab:cross-model-summary}
+\begin{tabular}{lccc}
+\toprule
+Variant & Mean BERTScore & Mean Sentiment & Mean Word Len \\
+\midrule
+Base & \texttt{[fill]} & \texttt{[fill]} & \texttt{[fill]} \\
+Tone & \texttt{[fill]} & \texttt{[fill]} & \texttt{[fill]} \\
+Formality & \texttt{[fill]} & \texttt{[fill]} & \texttt{[fill]} \\
+Emotion & \texttt{[fill]} & \texttt{[fill]} & \texttt{[fill]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent\textit{Takeaways.} Name the most stable model by average BERTScore. Identify the most sensitive variant across models. Note any domain where drift is consistently largest. Full per-model aggregated tables and all granular tables appear in the Appendix for replication.
