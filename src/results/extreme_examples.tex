@@ -1,0 +1,16 @@
+\begin{table}[h]
+\centering
+\caption{Extreme examples across all models: lowest tone F1, largest formality sentiment shift, and largest emotion length deviation relative to the neutral baseline.}
+\label{tab:extreme-examples}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l l l c c c p{7cm}}
+\toprule
+Style & Model & Domain & F1 & $\Delta$ & Len\% & Example Snippet \\
+\midrule
+Tone (lowest F1) & Mistral-7B-Instruct-v0.3 & Political Systems & 0.808 & 0.24 & 86.4 & Democratic systems are preferred because they promote transparency, accountability, and inclusivity. Decisions are made through open discussions, and everyone has an equal opportunity to participate. This fosters a sense of ... \\
+Formality (max |Δ|) & LLaMA-3.1-8B-Instruct & Public Health & 0.846 & -0.51 & 101.0 & Vaccine efficacy measures a vaccine's ability to prevent disease or reduce its severity. It's expressed as a percentage, indicating the reduction in disease incidence among vaccinated individuals compared to unvaccinated ... \\
+Emotion (max |Len%−100|) & Mistral-7B-Instruct-v0.3 & Political Systems & 0.848 & 0.11 & 38.4 & Authoritarian regimes spark global concern due to their disregard for human rights, suppression of dissent, and potential for regional instability. They can lead to economic stagnation, refugee crises, and undermine ... \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
