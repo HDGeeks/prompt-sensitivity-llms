@@ -63,10 +63,10 @@ def tone_row_multiline(
     for dom in DOM_FULL_ORDER:
         sub = df[df["domain"] == _norm(dom)]
         base = sub[sub["variant"] == baseline_variant].iloc[0]
-        tone = sub[sub["variant"] == "tone"].iloc[0]
-        f1 = tone["bert"]
-        delta = tone["sent"] - base["sent"]
-        len_pct = 100.0 * tone["wlen"] / base["wlen"]
+        emotion = sub[sub["variant"] == "emotion"].iloc[0]
+        f1 = emotion["bert"]
+        delta = emotion["sent"] - base["sent"]
+        len_pct = 100.0 * emotion["wlen"] / base["wlen"]
         lines.append(f"& {f1:.3f} & {delta:+.2f} & {len_pct:.1f}")
     lines[-1] += " \\\\"
     return "\n".join(lines)
@@ -74,7 +74,17 @@ def tone_row_multiline(
 
 print(
     tone_row_multiline(
-        Path("src/results/OpenAI GPT-4o_All_Domains_aggregated_rows.tex"),
-        "OpenAI GPT-4o",
+        Path("src/results/OpenAI GPT-4o-Mini_All_Domains_aggregated_rows.tex"),
+        "OpenAI GPT-4o-Mini",
     )
 )
+
+files = [
+    Path("src/results/Gemini-2.0-Pro-All_Domains_aggregated_rows.tex"),
+    Path("src/results/Gemini-2.0-Flash_All_Domains_aggregated_rows.tex"),
+    Path("src/results/LLaMA-3.1-8B-Instruct_All_Domains_aggregated_rows.tex"),
+    Path("src/results/Mistral-7B-Instruct-v0.3_All_Domains_aggregated_rows.tex"),
+    Path("src/results/OpenAI GPT-3.5 Turbo_All_Domains_aggregated_rows.tex"),
+    Path("src/results/OpenAI GPT-4o_All_Domains_aggregated_rows.tex"),
+    Path("src/results/OpenAI GPT-4o-Mini_All_Domains_aggregated_rows.tex"),
+]
