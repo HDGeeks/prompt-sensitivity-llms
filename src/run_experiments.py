@@ -7,7 +7,7 @@ from models.openai_client import query_openai
 from models.gemini_client import query_gemini
 from models.llama_client import query_llama
 
-load_dotenv()
+
 
 CONTROL_SUFFIX = " Respond clearly and concisely in ~80–120 words."
 MAX_TOKENS = 150
