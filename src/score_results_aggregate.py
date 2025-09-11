@@ -1,4 +1,4 @@
-# file: model_tables_agg.py
+
 import pandas as pd
 from pathlib import Path
 from textblob import TextBlob

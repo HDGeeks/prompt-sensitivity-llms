@@ -1,3 +1,20 @@
+"""
+inspection.py
+
+This script provides a comprehensive inspection utility for evaluating the quality and integrity of CSV files containing LLM response data.
+ It performs automated checks for missing values, error rates, and structural consistency, and generates detailed summary statistics on response length, latency, and duplication. The inspection report helps determine whether a CSV file meets predefined quality thresholds for further processing or archival.
+
+Key features:
+- Normalizes empty strings to NaN for error and response fields.
+- Calculates error rates and missing value counts per column.
+- Assesses data fitness based on configurable error thresholds and missing data.
+- Reports on word count deviations, latency statistics, and response duplication.
+- Identifies outliers and provides actionable insights for data curation.
+
+Intended for use in LLM evaluation pipelines to ensure data quality before advancing to subsequent analysis or deployment stages.
+Script to inspect CSV files for errors and data quality.
+"""
+
 import pandas as pd
 import numpy as np
 from pathlib import Path
