@@ -17,6 +17,7 @@ def sentiment(text: str) -> float:
 
 
 def safe_words(s: str, n: int) -> str:
+    """ Return first n words of s, safely."""
     w = (s or "").replace("\n", " ").split()
     return " ".join(w[:n]) + (" ..." if len(w) > n else "")
 

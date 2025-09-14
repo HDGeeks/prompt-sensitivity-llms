@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{microtype}
+\title{Gemini-1.5-Pro – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Environmental Policy – Variant Sensitivity}
+\label{tab:Gemini-15-Pro_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.851 & 0.01 & 88.2 \\
+tone & 0.794 & 0.18 & 85.0 \\
+formality & 0.792 & 0.01 & 86.8 \\
+emotion & 0.792 & 0.05 & 86.0 \\
+base & 0.864 & 0.07 & 93.8 \\
+tone & 0.784 & 0.19 & 84.6 \\
+formality & 0.790 & 0.02 & 88.4 \\
+emotion & 0.781 & 0.07 & 86.8 \\
+base & 0.851 & 0.06 & 86.6 \\
+tone & 0.808 & 0.21 & 82.0 \\
+formality & 0.810 & 0.03 & 86.0 \\
+emotion & 0.801 & 0.06 & 86.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Scientific Consensus – Variant Sensitivity}
+\label{tab:Gemini-15-Pro_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.862 & 0.16 & 84.4 \\
+tone & 0.820 & 0.15 & 90.6 \\
+formality & 0.818 & 0.05 & 81.8 \\
+emotion & 0.807 & 0.07 & 79.2 \\
+base & 0.856 & 0.05 & 72.8 \\
+tone & 0.805 & 0.20 & 86.2 \\
+formality & 0.817 & 0.13 & 84.2 \\
+emotion & 0.797 & 0.10 & 83.2 \\
+base & 0.858 & 0.13 & 87.4 \\
+tone & 0.842 & 0.15 & 82.0 \\
+formality & 0.863 & 0.06 & 81.6 \\
+emotion & 0.818 & 0.06 & 80.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Political Systems – Variant Sensitivity}
+\label{tab:Gemini-15-Pro_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.848 & 0.05 & 77.0 \\
+tone & 0.808 & 0.19 & 94.0 \\
+formality & 0.800 & 0.07 & 88.0 \\
+emotion & 0.817 & 0.00 & 86.4 \\
+base & 0.836 & -0.02 & 87.8 \\
+tone & 0.801 & 0.19 & 89.8 \\
+formality & 0.818 & 0.11 & 82.2 \\
+emotion & 0.791 & -0.02 & 86.0 \\
+base & 0.845 & 0.05 & 83.4 \\
+tone & 0.802 & 0.21 & 89.8 \\
+formality & 0.804 & 0.10 & 85.0 \\
+emotion & 0.788 & -0.01 & 89.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Historical Events – Variant Sensitivity}
+\label{tab:Gemini-15-Pro_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.857 & 0.17 & 81.4 \\
+tone & 0.807 & -0.08 & 87.4 \\
+formality & 0.805 & 0.04 & 89.2 \\
+emotion & 0.800 & -0.23 & 82.8 \\
+base & 0.870 & -0.00 & 83.4 \\
+tone & 0.845 & -0.07 & 91.0 \\
+formality & 0.844 & 0.07 & 88.8 \\
+emotion & 0.815 & -0.21 & 79.8 \\
+base & 0.877 & -0.04 & 89.4 \\
+tone & 0.876 & -0.05 & 85.6 \\
+formality & 0.876 & 0.05 & 92.8 \\
+emotion & 0.831 & -0.22 & 84.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro – Public Health – Variant Sensitivity}
+\label{tab:Gemini-15-Pro_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.861 & 0.01 & 85.2 \\
+tone & 0.858 & 0.04 & 84.0 \\
+formality & 0.813 & 0.20 & 85.8 \\
+emotion & 0.862 & -0.07 & 83.8 \\
+base & 0.863 & 0.04 & 82.2 \\
+tone & 0.805 & 0.03 & 87.4 \\
+formality & 0.803 & 0.29 & 82.2 \\
+emotion & 0.813 & -0.07 & 84.4 \\
+base & 0.845 & 0.16 & 80.2 \\
+tone & 0.817 & 0.02 & 86.0 \\
+formality & 0.794 & 0.27 & 82.8 \\
+emotion & 0.822 & -0.08 & 87.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{document}

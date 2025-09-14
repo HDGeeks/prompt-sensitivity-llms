@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{microtype}
+\title{gpt-4o-mini – Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{gpt-4o-mini – Environmental Policy – Variant Sensitivity}
+\label{tab:gpt-4o-mini_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.869 & 0.06 & 94.0 \\
+tone & 0.804 & 0.01 & 96.8 \\
+formality & 0.798 & 0.06 & 97.0 \\
+emotion & 0.807 & 0.01 & 97.8 \\
+base & 0.873 & 0.10 & 96.4 \\
+tone & 0.803 & 0.02 & 96.8 \\
+formality & 0.809 & 0.04 & 96.2 \\
+emotion & 0.799 & 0.02 & 97.4 \\
+base & 0.853 & 0.10 & 97.2 \\
+tone & 0.824 & 0.03 & 98.2 \\
+formality & 0.841 & 0.06 & 96.6 \\
+emotion & 0.815 & -0.04 & 95.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{gpt-4o-mini – Scientific Consensus – Variant Sensitivity}
+\label{tab:gpt-4o-mini_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.875 & 0.02 & 91.8 \\
+tone & 0.835 & 0.01 & 96.0 \\
+formality & 0.820 & 0.10 & 96.0 \\
+emotion & 0.816 & -0.03 & 97.0 \\
+base & 0.879 & 0.09 & 95.4 \\
+tone & 0.836 & 0.13 & 96.0 \\
+formality & 0.826 & 0.05 & 95.8 \\
+emotion & 0.814 & 0.04 & 94.4 \\
+base & 0.860 & 0.17 & 97.4 \\
+tone & 0.830 & 0.01 & 96.4 \\
+formality & 0.850 & 0.07 & 96.0 \\
+emotion & 0.810 & 0.03 & 95.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{gpt-4o-mini – Political Systems – Variant Sensitivity}
+\label{tab:gpt-4o-mini_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.862 & 0.02 & 91.8 \\
+tone & 0.825 & 0.13 & 95.2 \\
+formality & 0.823 & 0.08 & 90.0 \\
+emotion & 0.837 & 0.00 & 96.2 \\
+base & 0.895 & 0.01 & 87.6 \\
+tone & 0.799 & 0.14 & 95.2 \\
+formality & 0.840 & 0.13 & 91.4 \\
+emotion & 0.796 & -0.01 & 96.4 \\
+base & 0.862 & -0.03 & 95.6 \\
+tone & 0.822 & 0.14 & 95.4 \\
+formality & 0.796 & 0.03 & 88.2 \\
+emotion & 0.801 & 0.00 & 96.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{gpt-4o-mini – Historical Events – Variant Sensitivity}
+\label{tab:gpt-4o-mini_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.872 & 0.13 & 95.6 \\
+tone & 0.806 & 0.08 & 97.2 \\
+formality & 0.808 & 0.07 & 97.4 \\
+emotion & 0.810 & -0.07 & 97.2 \\
+base & 0.886 & 0.06 & 94.6 \\
+tone & 0.841 & 0.04 & 97.8 \\
+formality & 0.844 & 0.10 & 99.2 \\
+emotion & 0.833 & -0.00 & 97.8 \\
+base & 0.880 & 0.09 & 98.0 \\
+tone & 0.862 & 0.01 & 97.0 \\
+formality & 0.873 & 0.10 & 97.6 \\
+emotion & 0.844 & -0.07 & 97.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{gpt-4o-mini – Public Health – Variant Sensitivity}
+\label{tab:gpt-4o-mini_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\toprule
+Variant & BERTScore F1 (vs. neutral) & Sentiment Polarity & Word Len \\
+\midrule
+base & 0.858 & 0.03 & 95.4 \\
+tone & 0.865 & 0.04 & 95.2 \\
+formality & 0.813 & 0.11 & 95.0 \\
+emotion & 0.862 & 0.04 & 93.4 \\
+base & 0.860 & 0.04 & 90.2 \\
+tone & 0.806 & 0.02 & 95.0 \\
+formality & 0.801 & 0.04 & 95.8 \\
+emotion & 0.807 & 0.04 & 95.4 \\
+base & 0.863 & 0.15 & 95.6 \\
+tone & 0.822 & -0.01 & 96.0 \\
+formality & 0.802 & 0.08 & 93.4 \\
+emotion & 0.824 & 0.11 & 93.2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\end{document}
