@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\title{Gemini-1.5-Pro -- Variant Sensitivity Across Domains}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro -- Public Health -- Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Public_Health}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \
+\hline
+base & 0.857 & 0.07 & 82.5  \
+tone & 0.827 & 0.03 & 85.8  \
+formality & 0.804 & 0.25 & 83.6  \
+emotion & 0.832 & -0.07 & 85.1  \
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro -- Historical Events -- Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Historical_Events}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \
+\hline
+base & 0.868 & 0.04 & 84.7  \
+tone & 0.843 & -0.07 & 88.0  \
+formality & 0.841 & 0.05 & 90.3  \
+emotion & 0.815 & -0.22 & 82.2  \
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro -- Political Systems -- Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Political_Systems}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \
+\hline
+base & 0.843 & 0.02 & 82.7  \
+tone & 0.804 & 0.20 & 91.2  \
+formality & 0.807 & 0.09 & 85.1  \
+emotion & 0.799 & -0.01 & 87.1  \
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro -- Scientific Consensus -- Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Scientific_Consensus}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \
+\hline
+base & 0.859 & 0.11 & 81.5  \
+tone & 0.822 & 0.17 & 86.3  \
+formality & 0.833 & 0.08 & 82.5  \
+emotion & 0.807 & 0.08 & 80.9  \
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Gemini-1.5-Pro -- Environmental Policy -- Variant Sensitivity}
+\label{tab:Gemini-1.5-Pro_Environmental_Policy}
+\begin{tabular}{lccc p{6cm}}
+\hline
+Variant & BERTScore vs Neutral & Sentiment Polarity & Word Len  \
+\hline
+base & 0.855 & 0.05 & 89.5  \
+tone & 0.795 & 0.20 & 83.9  \
+formality & 0.798 & 0.02 & 87.1  \
+emotion & 0.791 & 0.06 & 86.5  \
+\hline
+\end{tabular}
+\end{table}
+\end{document}
